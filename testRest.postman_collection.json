@@ -1,0 +1,393 @@
+{
+	"info": {
+		"_postman_id": "e5b0eb67-50a3-4c6e-89bc-9fe881f3f548",
+		"name": "testRest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17025628"
+	},
+	"item": [
+		{
+			"name": "getProjectById",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "createNewProject",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "100",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"projectName\": \"myproject2\",\r\n    \"subProjectSet\": [],\r\n    \"userTaskSet\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8084/createProject",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"createProject"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addSubprojectToProjectById",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "        {\r\n            \"subProjectName\": \"mysubproject3\"\r\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8084/subproject/new?projectId=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"subproject",
+						"new"
+					],
+					"query": [
+						{
+							"key": "projectId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addManagerTaskByProjectId",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "                {\r\n                    \"taskName\": \"Technical Specialist Task\",\r\n                    \"info\": \"информация для техспеца\"\r\n                }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8084/project/usertask/techspec/new?projectId=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"project",
+						"usertask",
+						"techspec",
+						"new"
+					],
+					"query": [
+						{
+							"key": "projectId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addTechSpecialistTaskByProjectId",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "                {\r\n                    \"taskName\": \"Technical Specialist Task\",\r\n                    \"info\": \"информация для техспеца\"\r\n                }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8084/project/usertask/techspec/new?projectId=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"project",
+						"usertask",
+						"techspec",
+						"new"
+					],
+					"query": [
+						{
+							"key": "projectId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTaskFromProject",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8084/project/usertask?taskName=Technical Specialist Task&projectId=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"project",
+						"usertask"
+					],
+					"query": [
+						{
+							"key": "taskName",
+							"value": "Technical Specialist Task"
+						},
+						{
+							"key": "projectId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addTecjSpecTaskForSubProjectId",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "                {\r\n                    \"taskName\": \"New Task !\",\r\n                    \"info\": \"информация для техспеца\"\r\n                }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8084/subproject/usertask/techspec/new?subprojectName=mysubproject2&projectId=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"subproject",
+						"usertask",
+						"techspec",
+						"new"
+					],
+					"query": [
+						{
+							"key": "subprojectName",
+							"value": "mysubproject2"
+						},
+						{
+							"key": "projectId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addManagerTaskForSubProjectName",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "                {\r\n                    \"taskName\": \"New Task !\",\r\n                    \"info\": \"информация для техспеца\"\r\n                }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8084/subproject/usertask/manager/new?subprojectName=mysubproject2&projectId=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"subproject",
+						"usertask",
+						"manager",
+						"new"
+					],
+					"query": [
+						{
+							"key": "subprojectName",
+							"value": "mysubproject2"
+						},
+						{
+							"key": "projectId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTaskFromSubProject",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8084/subproject/usertask?taskName=New Task !&subProjectName=mysubproject2&projectId=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"subproject",
+						"usertask"
+					],
+					"query": [
+						{
+							"key": "taskName",
+							"value": "New Task !"
+						},
+						{
+							"key": "subProjectName",
+							"value": "mysubproject2"
+						},
+						{
+							"key": "projectId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateTaskFromProject",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n        {\r\n        \"op\": \"replace\", \r\n        \"path\": \"/status\", \r\n        \"value\": \"DONE\"\r\n        }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8084/project/usertask/techspec/edit?projectId=2&taskName=Manager Specialist Task2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"project",
+						"usertask",
+						"techspec",
+						"edit"
+					],
+					"query": [
+						{
+							"key": "projectId",
+							"value": "2"
+						},
+						{
+							"key": "taskName",
+							"value": "Manager Specialist Task2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateTaskFromSubProject",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8084/project/usertask/manager/edit?projectId=2&taskName=Manager Specialist Task2&subProjectName=New Task !",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"project",
+						"usertask",
+						"manager",
+						"edit"
+					],
+					"query": [
+						{
+							"key": "projectId",
+							"value": "2"
+						},
+						{
+							"key": "taskName",
+							"value": "Manager Specialist Task2"
+						},
+						{
+							"key": "subProjectName",
+							"value": "New Task !"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
